@@ -27,7 +27,7 @@
         "extensions": [
           ".sage"
         ],
-        "configuration": "./language-configuration.json"
+        "configuration": "./data/language-configuration.json"
       }
     ],
     "grammars": [
@@ -97,12 +97,15 @@
   ],
   "scripts": {
     "vscode:prepublish": "pnpm run compile",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
+    "compile": "pnpm exec tsc -p ./",
+    "watch": "pnpm exec tsc -watch -p ./",
     "pretest": "pnpm run compile && pnpm run lint",
     "lint": "eslint src",
     "test": "vscode-test",
-    "update-grammar": "sage -python scripts/generate_sagemath_symbols.py && node scripts/update_grammar.js"
+    "update-python-keywords": "python scripts/generate_python_keywords.py > data/python_keywords.json",
+    "update-sagemath-symbols": "sage -python scripts/generate_sagemath_symbols.py",
+    "update-grammar": "node scripts/update_grammar.js",
+    "update-all-symbols": "pnpm run update-python-keywords && pnpm run update-sagemath-symbols && pnpm run update-grammar"
   },
   "devDependencies": {
     "@types/vscode": "^1.100.0",

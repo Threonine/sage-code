@@ -32,7 +32,7 @@ function escapeRegExp(string) {
  */
 function buildRegex(list) {
   if (!list || list.length === 0) {
-    return "\\b(THIS_SHOULD_NEVER_MATCH)\\b";
+    return "(?!)";
   }
   // --- Extract 'name' from each object ---
   const names = list.map((item) => item.name);
