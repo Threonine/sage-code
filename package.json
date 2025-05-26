@@ -2,7 +2,7 @@
   "name": "sage-code",
   "displayName": "sage-code",
   "description": "Enhanced support for SageMath in VS Code.",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "publisher": "suansuan",
   "repository": {
     "type": "git",
