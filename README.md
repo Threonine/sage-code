@@ -1,5 +1,7 @@
 # SageMath VS Code Enhancement Plugin (sage-code)
 
+[English](README.md) | [中文](README_ZH.md)
+
 Developed to streamline my personal workflow in CTF crypto challenges, this plugin improves the SageMath development experience in VS Code.
 
 ## ⚠️ Important Notes: Regarding Language Server Protocol (LSP) and Advanced Features
