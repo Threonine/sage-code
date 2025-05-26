@@ -2,6 +2,18 @@
 
 Developed to streamline my personal workflow in CTF crypto challenges, this plugin improves the SageMath development experience in VS Code.
 
+## ⚠️ Important Notes: Regarding Language Server Protocol (LSP) and Advanced Features
+
+This extension currently provides enhanced **syntax highlighting** through custom grammar rules (TextMate) and offers **basic code completion and hover documentation** by parsing SageMath introspection data.
+
+**Please note: This extension does not implement a full SageMath Language Server (Language Server Protocol, LSP).**
+
+This means that compared to mature language environments with full LSP support (e.g., standard Python with Pylance), you may **not** experience all modern IDE advanced features with this extension.
+
+The completion and hover functionalities we currently offer are based on a pre-generated list of symbols, rather than real-time, deep semantic analysis of your current project code.
+
+Currently, this extension aims to significantly improve the **basic editing experience** for SageMath code in VS Code, particularly in terms of syntax highlighting, lookup of common symbols, and basic completion, addressing pain points where standard Python extensions do not recognize SageMath-specific syntax.
+
 ## ✨ Features
 
 * **Enhanced Syntax Highlighting**
