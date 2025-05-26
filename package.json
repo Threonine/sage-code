@@ -1,0 +1,118 @@
+{
+  "name": "sage-code",
+  "displayName": "sage-code",
+  "description": "Enhanced support for SageMath in VS Code.",
+  "version": "0.0.1",
+  "publisher": "sage-code",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git"
+  },
+  "engines": {
+    "vscode": "^1.100.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "sagemath",
+        "aliases": [
+          "SageMath",
+          "sage"
+        ],
+        "extensions": [
+          ".sage"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "sagemath",
+        "scopeName": "source.sage",
+        "path": "./syntaxes/sagemath.tmLanguage.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "sage-code.runSageFile",
+        "title": "Sage: Run Sage File"
+      },
+      {
+        "command": "sage-code.runSageFileAndCleanPy",
+        "title": "Sage: Run Sage File and Clean .py"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "resourceLangId == sagemath",
+          "command": "sage-code.runSageFile",
+          "group": "navigation"
+        },
+        {
+          "when": "resourceLangId == sagemath",
+          "command": "sage-code.runSageFileAndCleanPy",
+          "group": "navigation"
+        }
+      ],
+      "editor/title/run": [
+        {
+          "when": "resourceLangId == sagemath",
+          "command": "sage-code.runSageFile",
+          "group": "navigation"
+        },
+        {
+          "when": "resourceLangId == sagemath",
+          "command": "sage-code.runSageFileAndCleanPy",
+          "group": "navigation"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Sage Code Runner",
+      "properties": {
+        "sage-code.codeRunner.executionMode": {
+          "type": "string",
+          "enum": [
+            "default",
+            "runAndClean"
+          ],
+          "default": "default",
+          "description": "Selects the behavior when Code Runner executes .sage files: 'default' (just run), 'runAndClean' (run and then delete the generated .py file).",
+          "enumDescriptions": [
+            "Just run the Sage file.",
+            "Run the Sage file and then delete the generated .py file."
+          ]
+        }
+      }
+    }
+  },
+  "extensionDependencies": [
+    "ms-python.python"
+  ],
+  "scripts": {
+    "vscode:prepublish": "pnpm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "pnpm run compile && pnpm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test",
+    "update-grammar": "sage -python scripts/generate_sagemath_symbols.py && node scripts/update_grammar.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.100.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.17.50",
+    "@typescript-eslint/eslint-plugin": "^8.31.1",
+    "@typescript-eslint/parser": "^8.31.1",
+    "eslint": "^9.25.1",
+    "typescript": "^5.8.3",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.5.2"
+  }
+}

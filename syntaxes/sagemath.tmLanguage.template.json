@@ -1,0 +1,70 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "SageMath",
+  "scopeName": "source.sage",
+  "patterns": [
+    { "include": "#sage-patterns" },
+    { "include": "#sage-keywords" },
+    { "include": "source.python" }
+  ],
+  "repository": {
+    "sage-keywords": {
+      "patterns": [
+        {
+          "name": "support.class.sage support.type.sage",
+          "match": "__SAGE_CLASSES__"
+        },
+        {
+          "name": "support.function.sage",
+          "match": "__SAGE_FUNCTIONS__"
+        },
+        {
+          "name": "constant.language.sage constant.language.math.sage",
+          "match": "__SAGE_CONSTANTS__"
+        },
+        {
+          "name": "support.function.decorator.sage",
+          "match": "@(cached_function|parallel|interact)\\b"
+        }
+      ]
+    },
+    "sage-patterns": {
+      "patterns": [
+        {
+          "name": "meta.ring-definition.sage",
+          "begin": "(?<=(\\w|\\)))(\\.)(<)",
+          "beginCaptures": {
+            "2": { "name": "punctuation.accessor.sage" },
+            "3": { "name": "punctuation.definition.parameters.begin.sage" }
+          },
+          "end": "(>)",
+          "endCaptures": {
+            "1": { "name": "punctuation.definition.parameters.end.sage" }
+          },
+          "patterns": [
+            {
+              "name": "variable.parameter.sage",
+              "match": "\\b[a-zA-Z_][a-zA-Z0-9_]*\\b"
+            },
+            {
+              "name": "punctuation.separator.comma.sage",
+              "match": ","
+            },
+            {
+              "match": "\\s+",
+              "name": "text.whitespace"
+            }
+          ]
+        },
+        {
+          "name": "constant.numeric.sage",
+          "match": "\\b\\d+[rRlL]\\b"
+        },
+        {
+          "name": "keyword.control.sage",
+          "match": "\\b(cdef|cpdef|ctypedef|cimport|cythonize)\\b"
+        }
+      ]
+    }
+  }
+}
