@@ -28,10 +28,10 @@ Developed to streamline my personal workflow in CTF crypto challenges, this plug
 
 ## 📸 Preview
 
-![Auto Completion](image/image.png)
-![Hover Docs](image/image-1.png)
-![Context Menu](image/image-2.png)
-![Code Runner](image.png)
+![Auto Completion](https://raw.githubusercontent.com/Threonine/sage-code/main/image/image.png)
+![Hover Docs](https://raw.githubusercontent.com/Threonine/sage-code/main/image/image-1.png)
+![Context Menu](https://raw.githubusercontent.com/Threonine/sage-code/main/image/image-2.png)
+![Code Runner](https://raw.githubusercontent.com/Threonine/sage-code/main/image/image-3.png)
 
 ## 📄 License
 
